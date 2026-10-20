@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>프롬프트 보관함</title>
-<link rel="preconnect" href="<https://www.gstatic.com>" crossorigin>
-<link rel="preconnect" href="<https://firestore.googleapis.com>" crossorigin>
-<link rel="modulepreload" href="<https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js>">
-<link rel="modulepreload" href="<https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js>">
-<link rel="modulepreload" href="<https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js>">
-<link rel="stylesheet" href="<https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css>">
+<link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://firestore.googleapis.com" crossorigin>
+<link rel="modulepreload" href="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js">
+<link rel="modulepreload" href="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js">
+<link rel="modulepreload" href="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root{
   --bg:#ffffff;--text:#111111;--sub:#555555;--muted:#9a9a9a;--line:#ececec;--soft:#f5f5f5;--danger:#c0392b;
@@ -147,7 +147,7 @@ dialog.closing::backdrop{opacity:0;transition:opacity .16s}
 .btn.sm{height:28px;padding:0 9px;font-size:12px}
 .btn:disabled{opacity:.5}
 
-select{width:100%;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 11px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='<http://www.w3.org/2000/svg>' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 10px center;background-size:16px}
+select{width:100%;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 11px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 10px center;background-size:16px}
 input,textarea{width:100%;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 11px;transition:border-color .15s}
 input:focus,textarea:focus{border-color:#cfcfcf}
 textarea{min-height:140px;resize:vertical;line-height:1.55}
@@ -387,15 +387,15 @@ img{-webkit-touch-callout:none;-webkit-user-drag:none;user-select:none;-webkit-u
 const firebaseConfig = {
   apiKey: "AIzaSyDHbnieTZ1-JsEkyup9KpWH8UUNVm3eRkE",
   authDomain: "dine-bffb5.firebaseapp.com",
-  projectId: ""dine-bffb5",
+  projectId: "dine-bffb5",
   appId: "1:330025666368:web:b677c468591398a20edca5"
 };
 const ADMINS = ["hekim122221@gmail.com"];
 // ==========================================
 
-import { initializeApp } from "<https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js>";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged } from "<https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js>";
-import { getFirestore, initializeFirestore, persistentLocalCache, persistentMultipleTabManager, collection, query, where, onSnapshot, getDocs, getDoc, setDoc, addDoc, updateDoc, deleteDoc, doc, writeBatch, serverTimestamp } from "<https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js>";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, initializeFirestore, persistentLocalCache, persistentMultipleTabManager, collection, query, where, onSnapshot, getDocs, getDoc, setDoc, addDoc, updateDoc, deleteDoc, doc, writeBatch, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -415,7 +415,7 @@ function toast(m){ const t=$("#toast"); t.textContent=m; t.classList.add("show")
 function esc(s){ return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 const ts = v => v?.toMillis ? v.toMillis() : (typeof v === "number" ? v : 0);
 const num = (v, d) => (typeof v === "number" && isFinite(v)) ? v : d;
-const currentFolderId = () => { const m = location.hash.match(/^#\\/f\\/(.+)$/); return m ? decodeURIComponent(m[1]) : null; };
+const currentFolderId = () => { const m = location.hash.match(/^#\/f\/(.+)$/); return m ? decodeURIComponent(m[1]) : null; };
 
 // 정렬: 순서(order)가 있으면 그 순서, 없으면 폴더는 만든 순 / 프롬프트는 최신이 위
 const folderKey = f => num(f.order, ts(f.created) / 1e3);
